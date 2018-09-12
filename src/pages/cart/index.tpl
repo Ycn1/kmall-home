@@ -1,6 +1,13 @@
-<ul class="cart-header">
+{{#notEmpty}}
+
+<ul class="cart-header clearfix">
 	<li class="header-select">
-		<input type="checkbox" class="select-all">
+		{{#totalCheck}}
+		<input type="checkbox" class="select-all" checked />
+		{{/totalCheck}}
+		{{^totalCheck}}
+		<input type="checkbox" class="select-all" />
+		{{/totalCheck}}
 		<span>全选</span>
 	</li>
 	<li class="header-product">
@@ -19,25 +26,34 @@
 		操作
 	</li>
 </ul>
-<ul class="cart-product">
+{{#cartList}}
+<ul class="cart-product" data-product-id= "{{product._id}}">
 	<li class="product-select">
-		<input type="checkbox" class="select-one">
+
+		{{#check}}
+		<input type="checkbox" class="select-one" checked />
+		{{/check}}
+		{{^check}}
+		<input type="checkbox" class="select-one"  />
+		{{/check}}
 	
 	</li>
 	<li class="product-info">
-		<img src="http://localhost:3002/resource/floor-02.jpg" alt="">
-		<span>11212211</span>
+		<a href="./detail.html/productId = {{product._id}}" class="link">
+			<img src="{{product.img}}" alt="">
+			<span>{{product.name}}</span>
+		</a>
 	</li>
 	<li class="product-price">
-		￥111111
+		￥{{product.price}}
 	</li>
 	<li class="product-count">
 		<span class="count-btn minus">-</span>
-		<input type="text" class="count-input">
+		<input type="text" class="count-input" value="{{count}}" />
 		<span class="count-btn plus">+</span>
 	</li>
 	<li class="product-totalprice">
-		￥111111
+		￥{{Price}}
 	</li>
 	<li class="product-option">
 		<span>
@@ -45,9 +61,16 @@
 		</span>
 	</li>
 </ul>
+{{/cartList}}
 <ul class="cart-footer">
 	<li class="footer-select">
-		<input type="checkbox" class="select-all">
+
+		{{#totalCheck}}
+		<input type="checkbox" class="select-all" checked />
+		{{/totalCheck}}
+		{{^totalCheck}}
+		<input type="checkbox" class="select-all" />
+		{{/totalCheck}}
 		<span>全选</span>
 	</li>
 	<li class="footer-option">
@@ -57,10 +80,18 @@
 	</li>
 	<li class="footer-submit" id="footer-submit">
 		<span class="totao-price-text">总价</span>
-		<span class="totao-price">￥99999</span>
+		<span class="totao-price">￥{{toatlPrice}}</span>
 		<a href="javascript:;" class="btn">去结算</a>
 
 	</li>
 
 
 </ul>
+{{/notEmpty}}
+
+{{^notEmpty}}
+
+	<p class="empty-message">购物车空空如也!!!
+	<a href="/" class="btn gohome-btn">立即去购物</a></p>
+
+{{/notEmpty}}

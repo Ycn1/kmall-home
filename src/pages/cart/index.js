@@ -28,10 +28,45 @@ var page={
 
 
 	},
+	bindEvent:function(){
+		var _this =  this;
+
+		$('.cart-box').on('click','.select-one',function(){
+			var $this =  $(this)
+			
+			let productId = $this.parents('.cart-product').data('product-id');
+	
+			if($this.is(':checked')){
+				alert("check")
+				
+				
+				_cart.selectOne({productId:productId},
+					function(cart){
+						alert("successful")
+						_this.renderCart(cart)
+					},function(){
+						$('.cart-box').html('<p class= "empty-message">您访问的页面去火星了</p>')
+					})
+
+			}else{
+				alert('uncheck')
+			
+				_cart.unselectOne({productId:productId},
+					function(cart){
+						alert('success')
+						_this.renderCart(cart)
+					},function(){
+						$('.cart-box').html('<p class= "empty-message">您访问的页面去火星了</p>')
+					})
+			}
+		})
+
+	},
 	onload:function(){
 		var _this =  this;
-		_cart.getCart(function(){
-				_this.renderCart()
+		_cart.getCart(function(cart){
+		
+			_this.renderCart(cart)
 		},function(){
 			$('.cart-box').html('<p class= "empty-message">您访问的页面去火星了</p>')
 		})
@@ -39,17 +74,21 @@ var page={
 
 	},
 	renderCart:function(cart){
-		var html = _util.render(tpl);
+		console.log(cart)
+		cart.cartList.forEach(item=>{
+			if(item.product.image){
+				item.product.img = item.product.image.split(',')[0]
+			}else{
+				item.product.img =  require('../../images/product-default.jpg')
+			}
+		})
+		cart.notEmpty = !!cart.cartList.length;
+		var html = _util.render(tpl,cart);
 			
 		$('.cart-box').html(html)
 	},
 	
-	bindEvent:function(){
-		var _this =  this;
 
-
-
-	},
 
 }
 $(function(){

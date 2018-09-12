@@ -23,7 +23,26 @@ const  _cart = {
 
 		})
 	},
+	selectOne:function(data,success,error){
+		_util.request({
+			method:'put',
+			url:"/cart/selectone",
+			data:data,
+			success:success,
+			error:error
 
+		})
+	},
+	unselectOne:function(data,success,error){
+		_util.request({
+			method:'put',
+			url:"/cart/unselectone",
+			data:data,
+			success:success,
+			error:error
+
+		})
+	}
 
 	
 }

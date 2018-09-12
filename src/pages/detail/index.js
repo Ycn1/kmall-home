@@ -87,27 +87,32 @@ var page={
 		var _this = this;
 
 		_product.getProductDetail({productId:this.params.productId},function(product){
+			if(product){
+				if(product.image){
+					product.image = product.image.split(',')
+				}else{
+					product.image = [require('../../images/product-default.jpg')]
+				}
+				product.mainImg = product.image[0];
 
-			if(product.image){
-				product.image = product.image.split(',')
+
+				var html = _util.render(tpl,product);
+				_this.stock = product.stock;
+				
+				$('.detail-box').html(html)
 			}else{
-				product.image = [require('../../images/product-default.jpg')]
+				$('.detail-box').html('<p class= "empty-message">您访问的页面去火星了</p>')
 			}
-			product.mainImg = product.image[0];
-
-
-			var html = _util.render(tpl,product);
-			_this.stock = product.stock;
-			
-			$('.detail-box').html(html)
+				
 
 		},function(msg){
 
 			_util.Errormsg(msg)
 		})
 	}
-	
 }
+	
+
 $(function(){
 	page.init();
 })
