@@ -1,0 +1,19 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.logo{
+	background: #fff;
+}
+.logo-item h1 a{
+	color: #f10;
+	font-size: 38px;
+	display: inline-block;
+	text-decoration: none;
+}

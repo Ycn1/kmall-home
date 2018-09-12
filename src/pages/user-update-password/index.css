@@ -1,0 +1,42 @@
+
+.content{
+	margin-top: 20px;
+	color: #000;
+	background-color: #fff;
+	padding: 20px;
+	width: 900px;
+	min-height: 600px;
+	display: inline-block;
+	float: right;
+	padding-right: 5px;
+	box-sizing: border-box;
+
+}
+
+.content .form{
+	width: 450px;
+	height: 200px;
+	padding-right: 5px;
+	
+	box-sizing: border-box;
+	background: #fff;
+	position: relative;
+}
+.form-item label{
+	/*background: #aaa;*/
+	width: 40px;
+	/*height: 40px;*/
+	line-height: 30px;
+	text-align: center;
+	display: inline-block;
+	margin-top: 2px;
+	/*position: absolute;
+	top: 11px;
+	left: 10px;*/
+
+
+	
+}
+.form-item label i{
+
+}

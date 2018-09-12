@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+		<%= htmlWebpackPlugin.options.title %> - kmall电商平台
+	</title>
+	<%= require("html-loader!./common/header.html")%>
+
+</head>
+<body>
+	<%= require("html-loader!./common/nav.html")%>
+
+	<%= require("html-loader!./common/search.html")%>
+	
+	<div class="focus">
+		<div class="container clearfix">
+			<ul class="keywords">
+				
+			</ul>
+			
+			<div class="banner">
+					
+					 
+			</div>
+
+		</div>
+	</div>
+	<div class="floor">
+		<div class="container clearfix">
+			<div class="floor-wrap">
+				
+				<!--<div class="floor-box">
+					 <h3>数码</h3>
+					<ul class="floor-list">
+						<li class="floor-item">
+							<a href="./list.html?id=11">
+								<p>手机</p>
+								<img src="<%=require('images/floor-01.jpg') %>" alt="">
+							</a>
+						</li>
+						<li class="floor-item">
+							<a href="./list.html?id=11">
+								<p>手机</p>
+								<img src="<%=require('images/floor-01.jpg') %>" alt="">
+							</a>
+						</li>
+						<li class="floor-item">
+							<a href="./list.html?id=11">
+								<p>手机</p>
+								<img src="<%=require('images/floor-01.jpg') %>" alt="">
+							</a>
+						</li>
+						<li class="floor-item">
+							<a href="./list.html?id=11">
+								<p>手机</p>
+								<img src="<%=require('images/floor-01.jpg') %>" alt="">
+							</a>
+						</li>
+						<li class="floor-item">
+							<a href="./list.html?id=11">
+								<p>手机</p>
+								<img src="<%=require('images/floor-01.jpg') %>" alt="">
+							</a>
+						</li>
+						<li class="floor-item">
+							<a href="./list.html?id=11">
+								<p>手机</p>
+								<img src="<%=require('images/floor-01.jpg') %>" alt="">
+							</a>
+						</li>
+					</ul> 
+				</div>-->
+				
+			</div>
+		</div>
+	</div>
+	
+	<%= require("html-loader!./common/footer.html")%>
+</body>
+</html>

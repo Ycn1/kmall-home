@@ -1,0 +1,40 @@
+.user-content{
+	height: 600px;
+	margin-top: 20px;
+	width: 100%;
+}
+.container{
+	width: 1200px;
+	margin:0 auto;
+}
+
+.content{
+	color: #000;
+	background-color: #fff;
+	padding: 20px;
+	width: 900px;
+	min-height: 600px;
+	display: inline-block;
+	float: right;
+}
+.content-item{
+	margin-top: 10px;
+	
+}
+
+.form-item{
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	border:none;
+}
+.label-item{
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+}
+.content-item{
+	display: inline-block;
+	width: 400px;
+	padding-left: 40px;
+}
