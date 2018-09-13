@@ -1,5 +1,5 @@
 
-require('../common/nav/index.js');
+var _nav = require('../common/nav/index.js');
 
 require('../common/search/index.js');
 require('util/carousel/index.js');
@@ -22,7 +22,7 @@ var page={
 	
 
 	init:function(){
-	
+		this.$box = $('.cart-box');
 		this.onload();
 		this.bindEvent();
 
@@ -30,35 +30,143 @@ var page={
 	},
 	bindEvent:function(){
 		var _this =  this;
-
-		$('.cart-box').on('click','.select-one',function(){
+		//单个物品的取消和选择
+		this.$box.on('click','.select-one',function(){
 			var $this =  $(this)
 			
 			let productId = $this.parents('.cart-product').data('product-id');
 	
 			if($this.is(':checked')){
-				alert("check")
+				
 				
 				
 				_cart.selectOne({productId:productId},
 					function(cart){
-						alert("successful")
+						
 						_this.renderCart(cart)
 					},function(){
 						$('.cart-box').html('<p class= "empty-message">您访问的页面去火星了</p>')
 					})
 
 			}else{
-				alert('uncheck')
+				
 			
 				_cart.unselectOne({productId:productId},
 					function(cart){
-						alert('success')
+						
 						_this.renderCart(cart)
 					},function(){
 						$('.cart-box').html('<p class= "empty-message">您访问的页面去火星了</p>')
 					})
 			}
+		})
+
+		//全部的选择和取消
+		this.$box.on('click','.select-all',function(){
+			var $this =  $(this);
+			if($this.is(':checked')){
+					_cart.selectAll(
+					function(cart){
+						
+						_this.renderCart(cart)
+					},function(){
+						$('.cart-box').html('<p class= "empty-message">您访问的页面去火星了</p>')
+					})
+				}else{
+					_cart.unselectAll(
+					function(cart){
+						
+						_this.renderCart(cart)
+					},function(){
+						$('.cart-box').html('<p class= "empty-message">您访问的页面去火星了</p>')
+					})
+				}
+		})
+
+		//单个删除商品
+		this.$box.on('click','.delete-one',function(){
+			var $this =  $(this)
+			
+			let productId = $this.parents('.cart-product').data('product-id');
+			if(_util.confirm('是否删除选择的商品')){
+
+				_cart.deleteOne({productId:productId},
+					function(cart){
+						
+						_this.renderCart(cart)
+					},function(){
+						$('.cart-box').html('<p class= "empty-message">您访问的页面去火星了</p>')
+				})
+			}
+			
+
+		})
+		this.$box.on('click','.deleteSelect',function(){
+			
+		
+			if(_util.confirm('是否删除选择的商品')){
+				
+				_cart.deleteSelete(
+					function(cart){
+						
+						_this.renderCart(cart)
+					},function(){
+						$('.cart-box').html('<p class= "empty-message">您访问的页面去火星了</p>')
+				})
+			}
+			
+
+		})
+		//input框的值得增减
+		this.$box.on('click','.count-btn',function(){
+			var $this =  $(this)		
+			let productId = $this.parents('.cart-product').data('product-id');
+			var $input =  $this.siblings('.count-input');
+		
+			var current  =  parseInt($input.val());
+			var max = $input.data('stock');
+		
+			var min =  1;
+			var newCount  = 0;
+
+			if($this.hasClass('plus')){
+			
+				if(current >= max){
+					msg:'商品数量到达上限'
+					return;
+				}
+				newCount =  current +1;
+
+
+			}else{
+				if(current <= min){
+					msg:'商品数量不能小于一件'
+					return;
+				}
+				newCount =  current - 1;
+			}
+
+			_cart.changeInput({productId:productId,count:newCount},
+					function(cart){
+						
+						_this.renderCart(cart)
+					},function(){
+						$('.cart-box').html('<p class= "empty-message">您访问的页面去火星了</p>')
+				})
+
+
+		})
+		//去结算页面
+		this.$box.on('click','.footer-submit .btn',function(){
+
+			
+			if (_this.cart && _this.cart.toatlPrice >0) {
+				window.location.href = './order-confirm.html'
+			}else{
+				_util.Errormsg('请选择商品后再提交')
+			}
+			
+
 		})
 
 	},
@@ -74,7 +182,8 @@ var page={
 
 	},
 	renderCart:function(cart){
-		console.log(cart)
+		_nav.cartLogin()
+		this.cart = cart;
 		cart.cartList.forEach(item=>{
 			if(item.product.image){
 				item.product.img = item.product.image.split(',')[0]

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+		<%= htmlWebpackPlugin.options.title %> - kmall电商平台
+	</title>
+	<%= require("html-loader!./common/header.html")%>
+
+</head>
+<body>
+	<%= require("html-loader!./common/nav.html")%>
+
+	<%= require("html-loader!./common/search.html")%>
+	
+	<div class="order-confirm clearfix">
+		<div class="container">
+			<div class="shipping-box">
+				
+			</div>
+			<div class="product-box">
+				
+			</div>
+			<div class="model">
+				<div class="container-model">
+					<div class="model-header">
+						<h3 class="header">新增地址</h3>
+						<i class="fa fa-close"></i>
+					</div>
+					<div class="form-body">
+							<div class="form-item">
+								<label for="">
+									<i class="fa fa-user"></i>
+								</label>
+								<input type="text" name="name" placeholder="请输入收货人姓名" class="username">
+							</div>
+							<div class="form-item selete">
+								<label for="">
+									<i class="fa fa-map-marker"></i>
+								</label>
+								<select name="province" class="selectAddress"></select>	<select name="city" class="selectAddress"></select>
+							</div>
+								<div class="form-item ">
+								<label for="">
+									<i class="fa fa-map-marker"></i>
+								</label>
+								<input type="text" name="address" placeholder="请输入詳細地址到门牌号" class="username">
+							</div>
+							<div class="form-item">
+								<label for="">
+									<i class="fa fa-phone"></i>
+								</label>
+								<input type="text" name="phone" placeholder="请输入手机号码" class="username">
+							</div>
+							<div class="form-item">
+								<label for="">
+									<i class="fa fa-envelope"></i>
+								</label>
+								<input type="text" name="zip" placeholder="请输入邮编" class="username">
+							</div>
+							<div class="btn" id="btn-submit">
+								<a href="javascript:;">提交</a>
+							</div>
+							
+
+					</div>
+					
+
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	
+	<%= require("html-loader!./common/footer.html")%>
+</body>
+</html>

@@ -42,8 +42,63 @@ const  _cart = {
 			error:error
 
 		})
-	}
+	},
+	selectAll:function(success,error){
+		_util.request({
+			method:'put',
+			url:"/cart/selectall",
+			success:success,
+			error:error
 
+		})
+	},
+	unselectAll:function(success,error){
+		_util.request({
+			method:'put',
+			url:"/cart/unselectall",
+
+			success:success,
+			error:error
+
+		})
+	},
+	deleteOne:function(data,success,error){
+		_util.request({
+			method:'put',
+			url:"/cart/deleteone",
+			data:data,
+			success:success,
+			error:error
+
+		})
+	},
+	deleteSelete:function(success,error){
+		_util.request({
+			method:'put',
+			url:"/cart/deleteSelete",
+			success:success,
+			error:error
+
+		})
+	},
+	changeInput:function(data,success,error){
+		_util.request({
+			method:'put',
+			url:"/cart/changeInput",
+			data:data,
+			success:success,
+			error:error
+
+		})
+	},
+	getCartCount:function(success,error){
+		_util.request({
+			url:"/cart/getcartCount",
+			success:success,
+			error:error
+
+		})
+	},
 	
 }
 module.exports =   _cart;

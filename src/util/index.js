@@ -33,6 +33,10 @@ const  _util = {
 		var html = template.render(data);
 		return html;
 	},
+	confirm:function(msg){
+		return window.confirm(msg)
+
+	},
 	doLogin:function(){
 		window.location.href='./user-login.html?redirect=' + encodeURIComponent(window.location.href);
 		// window.location.href = './user-login.html?redirect='+encodeURIComponent(window.location.href)

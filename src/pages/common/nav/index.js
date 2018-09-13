@@ -1,6 +1,7 @@
 require ('./index.css');
 const _user =  require('../../../server/user/index.js');
 const _util = require('util/index.js');
+const _cart = require('server/cart/index.js');
 
 var nav={
 	init:function(){
@@ -22,7 +23,13 @@ var nav={
 
 	},
 	cartLogin:function(){
+		_cart.getCartCount(function(count){
+			console.log(count)
+			$('.cart-num').text(count)
 
+		},function(){
+
+		})
 	},
 	userLogin:function(){
 		_user.getUserName(function(user){

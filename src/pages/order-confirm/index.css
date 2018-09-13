@@ -1,3 +1,62 @@
+
+.shipping{
+	width: 100%;
+	height: 150px;
+	background: #eee;
+	margin-top: 20px;
+}
+
+.shipping-body{
+	padding: 10px;
+	margin-top: 20px;
+	
+}
+.shipping-item{
+	width: 200px;
+
+	border: 3px dashed #ddd;
+	padding: 10px;
+	float: left;
+	margin-right: 10px;
+
+
+}
+.shipping-item.active{
+	background: #ccc;
+	border: 3px dashed #ddd;
+}
+
+.shipping-header{
+	border-bottom: 1px dashed #bbb;
+
+}
+.shipping-detail{
+	margin-top: 5px;
+	font-size: 15px;
+
+}
+.shopping-option{
+	font-size: 14px;
+	float: right;
+	cursor: pointer;
+
+	/*visibility: hidden;*/
+}
+.shopping-option:hover{
+	visibility: visible;
+}
+.shopping-option .link:hover{
+	color:#f21;
+}
+.shipping-add{
+	width: 200px;
+
+	border: 3px dashed #ddd;
+	padding: 10px;
+	float: left;
+	height: 65px;
+}
+
 .product-header li,
 .product-item li,
 .product-footer li{
@@ -117,3 +176,47 @@
 /*.cart-footer #footer-submit span{
 	float: right;
 }*/
+
+
+.model{
+	position: fixed;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.3);
+
+}
+.container-model{
+	width: 400px;
+	height: 400px;
+	background: #fff;
+	margin:100px auto;
+	padding: 15px;
+}
+
+.model-header{
+	height: 60px;
+	border-bottom: 1px solid #ddd;
+}
+.model-header h3{
+		float: left;
+}
+.model-header i{
+	float: right;
+}
+.form-body{
+	margin-top: 10px;
+	
+}
+.form-item{
+
+}
+.form-item.selete{
+	border: none;
+}
+.form-item .selectAddress{
+
+	width: 80px;
+
+}
