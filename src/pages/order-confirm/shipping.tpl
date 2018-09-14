@@ -1,29 +1,22 @@
 <div class="shipping">
 	<div class="shipping-body">
-		<div class="shipping-item active">
-			<h3 class="shipping-header">上海 张女士</h3>
-			<div class="shipping-detail">上海。。。。。。。</div>
+		{{#shippings}}
+		{{#isActive}}
+			<div class="shipping-item active" data-shipping-id= "{{_id}}">
+		{{/isActive}}
+		{{^isActive}}
+			<div class="shipping-item" data-shipping-id= "{{_id}}">
+		{{/isActive}}
+		
+			<h3 class="shipping-header">{{province}}  {{city}} {{name}}</h3>
+			<div class="shipping-detail">{{province}}  {{city}} {{ address}} {{phone}}</div>
 			<div class="shopping-option">
-				<span class="link">编辑</span>
-				<span class="link">删除</span>
+				<span class="link edit">编辑</span>
+				<span class="link delete" >删除</span>
 			</div>
 		</div>
-		<div class="shipping-item ">
-			<h3 class="shipping-header">上海 张女士</h3>
-			<div class="shipping-detail">上海。。。。。。。</div>
-			<div class="shopping-option">
-				<span class="link">编辑</span>
-				<span class="link">删除</span>
-			</div>
-		</div>
-		<div class="shipping-item ">
-			<h3 class="shipping-header">上海 张女士</h3>
-			<div class="shipping-detail">上海。。。。。。。</div>
-			<div class="shopping-option">
-				<span class="link">编辑</span>
-				<span class="link">删除</span>
-			</div>
-		</div>
+		{{/shippings}}
+		
 		<div class="shipping-add">
 			<i class="fa fa-plus"></i>
 			新增收货地址

@@ -173,6 +173,7 @@ var page={
 	onload:function(){
 		var _this =  this;
 		_cart.getCart(function(cart){
+			alert(cart)
 		
 			_this.renderCart(cart)
 		},function(){

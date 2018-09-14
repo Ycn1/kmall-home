@@ -23,7 +23,7 @@
 }
 .shipping-item.active{
 	background: #ccc;
-	border: 3px dashed #ddd;
+	border: 3px dashed #f21;
 }
 
 .shipping-header{
@@ -55,6 +55,7 @@
 	padding: 10px;
 	float: left;
 	height: 65px;
+	cursor: pointer;
 }
 
 .product-header li,
@@ -219,4 +220,7 @@
 
 	width: 80px;
 
+}
+.close-btn{
+	cursor: pointer;
 }

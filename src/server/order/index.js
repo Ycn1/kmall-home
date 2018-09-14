@@ -11,6 +11,16 @@ const  _order = {
 
 		})
 	},
+	createOrder:function(data,success,error){
+		_util.request({
+			method:'post',
+			url:"/order",
+			data:data,
+			success:success,
+			error:error
+
+		})
+	},
 
 	
 }
