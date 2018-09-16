@@ -12,28 +12,23 @@
 	<%= require("html-loader!./common/nav.html")%>
 
 	<%= require("html-loader!./common/search.html")%>
-	
-	<div class="list">
-		<div class="container">
-			<ul class="sort">
-				<li class="sort-item default ">
-					默认排序
-				</li>
-				<li class="sort-item price active asc">
-					按价格
-					<i class="fa fa-sort-desc desc"></i>
-					<i class="fa fa-sort-asc  asc"></i>
-				</li>
-			</ul>
-			<div class="product-list clearfix">
-					
+	<div class="user-content clearfix">
+		<div class="container">		
+				<%= require("html-loader!./common/side.html")%>
 				
-			</div>
-			<div class="pagination-box clearfix">
+				<div class="content">
+					<div class="content-box clearfix">
+						
+					</div>
+
+					<div class="pagination-box clearfix">
 				
-			</div>
+					</div>
+				</div>
+			
 		</div>
 	</div>
+	
 
 	
 	<%= require("html-loader!./common/footer.html")%>

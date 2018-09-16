@@ -21,6 +21,34 @@ const  _order = {
 
 		})
 	},
+	getProductList:function(data,success,error){
+		_util.request({
+			url:"/order/getlist",
+			data:data,
+			success:success,
+			error:error
+
+		})
+	},
+	getOrderDetail:function(data,success,error){
+		_util.request({
+			url:"/order/detail",
+			data:data,
+			success:success,
+			error:error
+
+		})
+	},
+	updateCancel:function(data,success,error){
+			_util.request({
+			url:"/order/cancel",
+			data:data,
+			method:"put",
+			success:success,
+			error:error
+
+		})
+	}
 
 	
 }

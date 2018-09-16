@@ -25,6 +25,8 @@ module.exports = {
     'common':'./src/pages/common/index.js',
     'index':'./src/pages/index/index.js',
     'user-login':'./src/pages/user-login/index.js',
+    'order-list':'./src/pages/order-list/index.js',
+    'order-detail':'./src/pages/order-detail/index.js',
     'rigister':'./src/pages/rigister/index.js',
     'detail':'./src/pages/detail/index.js',
     'result':'./src/pages/result/index.js',
@@ -33,6 +35,7 @@ module.exports = {
     'list':'./src/pages/list/index.js',
     'cart':'./src/pages/cart/index.js',
     'order-confirm':'./src/pages/order-confirm/index.js',
+    'payment':'./src/pages/payment/index.js',
     
   },
   //额外的配置jQuery
@@ -152,6 +155,10 @@ module.exports = {
     new HtmlWebpackPlugin(getHtmlConfig('cart','购物车页面')),
 
     new HtmlWebpackPlugin(getHtmlConfig('order-confirm','结算页面')),
+
+    new HtmlWebpackPlugin(getHtmlConfig('order-list','订单页面')),
+    new HtmlWebpackPlugin(getHtmlConfig('order-detail','订单详情页面')),
+    new HtmlWebpackPlugin(getHtmlConfig('payment','支付页面')),
     
     new HtmlWebpackPlugin(getHtmlConfig('result','提示页面')),
 
@@ -186,6 +193,10 @@ module.exports = {
         changeOrigin:true
       },
        "/order":{
+        target:"http://127.0.0.1:3000",
+        changeOrigin:true
+      },
+       "/payment":{
         target:"http://127.0.0.1:3000",
         changeOrigin:true
       }
